@@ -1,0 +1,3 @@
+# celluloid
+
+Easy matplotlib animation
