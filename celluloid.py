@@ -19,7 +19,7 @@ class Artists:
         }
         self.artists: List[List[Artist]] = []
 
-    def frame(self, figure: Figure) -> List[Artist]:
+    def snapshot(self, figure: Figure) -> List[Artist]:
         frame_artists: List[Artist] = []
         for name in self.offsets:
             for i, ax in enumerate(figure.axes):
