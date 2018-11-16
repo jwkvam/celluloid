@@ -1,4 +1,4 @@
-from typing import List
+from typing import Dict, List
 from collections import defaultdict
 
 from matplotlib.figure import Figure
@@ -10,17 +10,17 @@ class Artists:
 
     def __init__(self) -> None:
         # need to keep track off artists for each axis
-        self.offsets = {
+        self.offsets: Dict[str, Dict[int, int]] = {
             'collections': defaultdict(int),
             'patches': defaultdict(int),
             'lines': defaultdict(int),
             'texts': defaultdict(int),
             'artists': defaultdict(int),
         }
-        self.artists = []
+        self.artists: List[List[Artist]] = []
 
     def frame(self, figure: Figure) -> List[Artist]:
-        frame_artists = []
+        frame_artists: List[Artist] = []
         for name in self.offsets:
             for i, ax in enumerate(figure.axes):
                 start = self.offsets[name][i]
