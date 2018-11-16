@@ -1,19 +1,31 @@
+from typing import List
+from collections import defaultdict
+
+from matplotlib.figure import Figure
+from matplotlib.artist import Artist
+
+
 class Artists:
     """Dumb class to make animations easier."""
 
-    def __init__(self):
+    def __init__(self) -> None:
+        # need to keep track off artists for each axis
         self.offsets = {
-            'collections': 0,
-            'patches': 0,
-            'lines': 0,
-            'texts': 0,
-            'artists': 0
+            'collections': defaultdict(int),
+            'patches': defaultdict(int),
+            'lines': defaultdict(int),
+            'texts': defaultdict(int),
+            'artists': defaultdict(int),
         }
+        self.artists = []
 
-    def new(self, ax):
+    def frame(self, figure: Figure) -> List[Artist]:
         frame_artists = []
-        for name, start in self.artist.items():
-            new_artists = getattr(ax, name)[start:]
-            frame_artists += new_artists
-            self.offsets[name] += len(new_artists)
+        for name in self.offsets:
+            for i, ax in enumerate(figure.axes):
+                start = self.offsets[name][i]
+                new_artists = getattr(ax, name)[start:]
+                frame_artists += new_artists
+                self.offsets[name][i] += len(new_artists)
+        self.artists.append(frame_artists)
         return frame_artists
