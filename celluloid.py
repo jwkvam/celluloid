@@ -1,4 +1,4 @@
-"""Simple matplotlib animation."""
+"""Easy matplotlib animation."""
 from typing import Dict, List
 from collections import defaultdict
 

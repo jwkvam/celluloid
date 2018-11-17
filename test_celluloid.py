@@ -22,6 +22,9 @@ def test_single():
     # pylint: disable=protected-access
     assert sum(len(x) for x in camera._photos) == 2 * 10
 
+    anim = camera.animate()
+    assert len(list(anim.frame_seq)) == 10
+
 
 def test_two_axes():
     """Test subplots."""
@@ -38,3 +41,6 @@ def test_two_axes():
 
     # pylint: disable=protected-access
     assert sum(len(x) for x in camera._photos) == 4
+
+    anim = camera.animate()
+    assert len(list(anim.frame_seq)) == 2
