@@ -27,6 +27,7 @@ Follow these steps:
 1. Create a matplotlib `Figure` and create a `Camera` from it:
 
 ```
+from celluloid import Camera
 fig = plt.figure()
 camera = Camera(fig)
 ```
