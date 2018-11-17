@@ -15,10 +15,10 @@ from matplotlib.animation import ArtistAnimation
 from celluloid import Camera
 
 fig = plt.figure()
-camera = Camera()
+camera = Camera(fig)
 for _ in range(10):
     plt.plot(t, np.sin(t + i), color='blue')
-    camera.snap(fig)
+    camera.snap()
 animation = ArtistAnimation(fig, camera.photos)
 ```
 
@@ -29,12 +29,12 @@ from matplotlib.animation import ArtistAnimation
 from celluloid import Camera
 
 fig, axes = plt.subplots(2)
-camera = Camera()
+camera = Camera(fig)
 t = np.linspace(0, 2 * np.pi, 128, endpoint=False)
 for i in np.linspace(0, 2 * np.pi, 128, endpoint=False):
     axes[0].plot(t, np.sin(t + i), color='blue')
     axes[1].plot(t, np.sin(t - i), color='blue')
-    camera.snap(fig)
+    camera.snap()
 animation = ArtistAnimation(fig, camera.photos)
 ```
 

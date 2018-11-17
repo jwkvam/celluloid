@@ -12,12 +12,12 @@ from celluloid import Camera
 t = np.linspace(0, 2 * np.pi, 128, endpoint=False)
 
 fig, axes = plt.subplots(2)
-camera = Camera()
+camera = Camera(fig)
 
 for i in np.linspace(0, 2 * np.pi, 128, endpoint=False):
     axes[0].plot(t, np.sin(t + i), color='blue')
     axes[1].plot(t, np.sin(t - i), color='blue')
-    camera.snap(fig)
+    camera.snap()
 
 animation = ArtistAnimation(fig, camera.photos, interval=50, blit=True)
 animation.save(
