@@ -21,7 +21,7 @@ def test_single():
         artists = arts.snapshot(fig)
         assert len(artists) == 2
 
-    assert sum(len(x) for x in arts.artists) == 2 * 11
+    assert sum(len(x) for x in arts.pictures) == 2 * 11
 
 
 def test_two_axes():
@@ -37,4 +37,4 @@ def test_two_axes():
     axes[1].plot(np.ones(100))
     artists = arts.snapshot(fig)
 
-    assert sum(len(x) for x in arts.artists) == 4
+    assert sum(len(x) for x in arts.pictures) == 4

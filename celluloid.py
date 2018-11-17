@@ -17,7 +17,7 @@ class Camera:
             'texts': defaultdict(int),
             'artists': defaultdict(int),
         }
-        self.artists: List[List[Artist]] = []
+        self.pictures: List[List[Artist]] = []
 
     def snapshot(self, figure: Figure) -> List[Artist]:
         frame_artists: List[Artist] = []
@@ -27,5 +27,5 @@ class Camera:
                 new_artists = getattr(ax, name)[start:]
                 frame_artists += new_artists
                 self.offsets[name][i] += len(new_artists)
-        self.artists.append(frame_artists)
+        self.pictures.append(frame_artists)
         return frame_artists
