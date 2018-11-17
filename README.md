@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.com/jwkvam/celluloid.svg?branch=master)](https://travis-ci.com/jwkvam/celluloid)
 [![codecov](https://codecov.io/gh/jwkvam/celluloid/branch/master/graph/badge.svg)](https://codecov.io/gh/jwkvam/celluloid)
+[![pypi](https://badge.fury.io/py/celluloid.svg)](https://pypi.org/project/celluloid/)
+[![pypi versions](https://img.shields.io/pypi/pyversions/celluloid.svg)](https://pypi.org/project/celluloid/)
 
 Easy Matplotlib Animation
 
@@ -26,7 +28,7 @@ Follow these steps:
 
 1. Create a matplotlib `Figure` and create a `Camera` from it:
 
-```
+```python
 from celluloid import Camera
 fig = plt.figure()
 camera = Camera(fig)
@@ -34,7 +36,7 @@ camera = Camera(fig)
 
 2. Reusing the figure and after each frame is created, take a snapshot with the camera.
 
-```
+```python
 plt.plot(...)
 plt.fancy_stuff()
 camera.snap()
@@ -42,7 +44,7 @@ camera.snap()
 
 3. After all frames have been captured, create the animation.
 
-```
+```python
 animation = camera.animate()
 animation.save('animation.mp4')
 ```
