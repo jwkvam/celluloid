@@ -12,23 +12,18 @@ class Camera:
     """Dumb class to make animations easier."""
 
     def __init__(self, figure: Figure) -> None:
+        self.figure = figure
         # need to keep track off artists for each axis
         self.offsets: Dict[str, Dict[int, int]] = {
-            'collections': defaultdict(int),
-            'patches': defaultdict(int),
-            'lines': defaultdict(int),
-            'texts': defaultdict(int),
-            'artists': defaultdict(int),
+            k: defaultdict(int) for k in ['collections', 'patches', 'lines', 'texts', 'artists']
         }
-        self.figure = figure
         self.photos: List[List[Artist]] = []
 
     def snap(self) -> List[Artist]:
         frame_artists: List[Artist] = []
         for name in self.offsets:
             for i, ax in enumerate(self.figure.axes):
-                start = self.offsets[name][i]
-                new_artists = getattr(ax, name)[start:]
+                new_artists = getattr(ax, name)[self.offsets[name][i]:]
                 frame_artists += new_artists
                 self.offsets[name][i] += len(new_artists)
         self.photos.append(frame_artists)
