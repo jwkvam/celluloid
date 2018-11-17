@@ -58,7 +58,6 @@ The entire [module](https://github.com/jwkvam/celluloid/blob/master/celluloid.py
 As simple as it gets.
 
 ```python
-import numpy as np
 from matplotlib import pyplot as plt
 from celluloid import Camera
 
