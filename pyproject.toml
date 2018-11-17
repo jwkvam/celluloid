@@ -1,0 +1,21 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "celluloid"
+author = "Jacques Kvam"
+author-email = "jwkvam+pypi@gmail.com"
+home-page = "https://github.com/jwkvam/celluloid"
+description-file = "README.md"
+classifiers = [
+"License :: OSI Approved :: MIT License",
+"Programming Language :: Python :: 3",
+"Programming Language :: Python :: 3.6",
+"Programming Language :: Python :: 3.7"
+]
+requires-python = ">=3.6"
+requires = [
+"matplotlib"
+]
+keywords = "matplotlib animation"
