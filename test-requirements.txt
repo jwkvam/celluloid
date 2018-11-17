@@ -1,5 +1,14 @@
+codecov
 matplotlib
+mypy
 numpy
 pandas
+pycodestyle
+pydocstyle
+pylint
 pytest
+pytest-codestyle
+pytest-cov
+pytest-docstyle
+pytest-mypy
 pytest-pylint
