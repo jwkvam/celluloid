@@ -7,4 +7,5 @@ python:
 install:
   - pip install -r test-requirements.txt
 script:
-  - pytest
+  - make test
+  - codecov

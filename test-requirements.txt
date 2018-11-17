@@ -1,3 +1,4 @@
+codecov
 matplotlib
 mypy
 numpy
@@ -7,6 +8,7 @@ pydocstyle
 pylint
 pytest
 pytest-codestyle
+pytest-cov
 pytest-docstyle
 pytest-mypy
 pytest-pylint
