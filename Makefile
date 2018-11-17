@@ -9,4 +9,4 @@ lint:
 	py.test --pylint -m pylint --pylint-rcfile=pylintrc --pylint-error-types=RCWEF
 
 static:
-	mypy -p bowtie
+	mypy -m celluloid

@@ -33,7 +33,7 @@ class Camera:
         self._photos.append(frame_artists)
         return frame_artists
 
-    def animate(self, *args, **kwargs):
+    def animate(self, *args, **kwargs) -> ArtistAnimation:
         """Animate the snapshots taken.
 
         Uses matplotlib.animation.ArtistAnimation
