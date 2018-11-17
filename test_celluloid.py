@@ -3,13 +3,13 @@ matplotlib.use('Agg')
 from matplotlib import pyplot as plt
 import numpy as np
 
-from celluloid import Artists
+from celluloid import Camera
 
 
 def test_single():
     fig = plt.figure()
 
-    arts = Artists()
+    arts = Camera()
     plt.plot(range(5))
     plt.plot(-np.arange(5))
     artists = arts.snapshot(fig)
@@ -27,7 +27,7 @@ def test_single():
 def test_two_axes():
     fig, axes = plt.subplots(2)
 
-    arts = Artists()
+    arts = Camera()
     axes[0].plot(np.zeros(100))
     axes[1].plot(np.zeros(100))
     artists = arts.snapshot(fig)

@@ -5,7 +5,7 @@ from matplotlib.figure import Figure
 from matplotlib.artist import Artist
 
 
-class Artists:
+class Camera:
     """Dumb class to make animations easier."""
 
     def __init__(self) -> None:
