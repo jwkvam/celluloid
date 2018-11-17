@@ -20,9 +20,9 @@ class Camera:
             'texts': defaultdict(int),
             'artists': defaultdict(int),
         }
-        self.pictures: List[List[Artist]] = []
+        self.photos: List[List[Artist]] = []
 
-    def snapshot(self, figure: Figure) -> List[Artist]:
+    def snap(self, figure: Figure) -> List[Artist]:
         frame_artists: List[Artist] = []
         for name in self.offsets:
             for i, ax in enumerate(figure.axes):
@@ -30,5 +30,5 @@ class Camera:
                 new_artists = getattr(ax, name)[start:]
                 frame_artists += new_artists
                 self.offsets[name][i] += len(new_artists)
-        self.pictures.append(frame_artists)
+        self.photos.append(frame_artists)
         return frame_artists
