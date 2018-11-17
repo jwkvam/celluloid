@@ -50,6 +50,10 @@ The entire [module](https://github.com/jwkvam/celluloid/blob/master/celluloid.py
 
 ## Examples
 
+### Minimal
+
+As simple as it gets.
+
 ```python
 import numpy as np
 from matplotlib import pyplot as plt
@@ -58,10 +62,20 @@ from celluloid import Camera
 fig = plt.figure()
 camera = Camera(fig)
 for i in range(10):
-    plt.plot(range(i, i + 5))
+    plt.plot([i] * 10)
     camera.snap()
 animation = camera.animate()
 ```
+
+<p align="center">
+  <a href="https://github.com/jwkvam/celluloid/examples/simple.py">
+    <img src="https://user-images.githubusercontent.com/86304/48666133-66660980-ea70-11e8-9024-b167c21a5e83.gif">
+  </a>
+</p>
+
+### Subplots
+
+Animation at the top.
 
 ```python
 import numpy as np
