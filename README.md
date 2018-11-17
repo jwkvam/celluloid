@@ -25,19 +25,27 @@ Follow these steps:
 
 1. Create a matplotlib `Figure` and create a `Camera` from it:
 
-    fig = plt.figure()
-    camera = Camera(fig)
+```
+fig = plt.figure()
+camera = Camera(fig)
+```
 
 2. Reusing the figure and after each frame is created, take a snapshot with the camera.
 
-    plt.plot(...)
-    plt.fancy_stuff()
-    camera.snap()
+```
+plt.plot(...)
+plt.fancy_stuff()
+camera.snap()
+```
 
 3. After all frames have been captured, create the animation.
 
-    animation = camera.animate()
-    animation.save('animation.mp4')
+```
+animation = camera.animate()
+animation.save('animation.mp4')
+```
+
+The entire [module](https://github.com/jwkvam/celluloid/blob/master/celluloid.py) is less than 50 lines of code.
 
 ## Examples
 
