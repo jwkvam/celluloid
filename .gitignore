@@ -1,3 +1,7 @@
+*.gif
+*.mp4
+*.html
+*.sh
 tags
 
 # Created by https://www.gitignore.io/api/python

@@ -5,6 +5,9 @@ from matplotlib.figure import Figure
 from matplotlib.artist import Artist
 
 
+__version__ = '0.1.0-dev'
+
+
 class Camera:
     """Dumb class to make animations easier."""
 
