@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+"""Sinusoid animation."""
 
 import numpy as np
 import matplotlib
@@ -19,7 +20,7 @@ for i in np.linspace(0, 2 * np.pi, 128, endpoint=False):
     axes[1].plot(t, np.sin(t - i), color='blue')
     camera.snap()
 
-animation = ArtistAnimation(fig, camera.photos, interval=50, blit=True)
+animation = camera.animate(interval=50, blit=True)
 animation.save(
     'sines.mp4',
     dpi=100,

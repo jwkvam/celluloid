@@ -1,12 +1,15 @@
+"""Test animations."""
+# pylint: disable=wrong-import-position
+import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 from matplotlib import pyplot as plt
-import numpy as np
 
 from celluloid import Camera
 
 
 def test_single():
+    """Test plt.figure()"""
     fig = plt.figure()
     camera = Camera(fig)
 
@@ -16,10 +19,12 @@ def test_single():
         artists = camera.snap()
         assert len(artists) == 2
 
-    assert sum(len(x) for x in camera.photos) == 2 * 10
+    # pylint: disable=protected-access
+    assert sum(len(x) for x in camera._photos) == 2 * 10
 
 
 def test_two_axes():
+    """Test subplots."""
     fig, axes = plt.subplots(2)
     camera = Camera(fig)
     axes[0].plot(np.zeros(100))
@@ -31,4 +36,5 @@ def test_two_axes():
     axes[1].plot(np.ones(100))
     artists = camera.snap()
 
-    assert sum(len(x) for x in camera.photos) == 4
+    # pylint: disable=protected-access
+    assert sum(len(x) for x in camera._photos) == 4

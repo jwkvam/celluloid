@@ -1,5 +1,12 @@
 matplotlib
+mypy
 numpy
 pandas
+pycodestyle
+pydocstyle
+pylint
 pytest
+pytest-codestyle
+pytest-docstyle
+pytest-mypy
 pytest-pylint
