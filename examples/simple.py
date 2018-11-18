@@ -4,18 +4,13 @@
 import matplotlib
 matplotlib.use('Agg')
 from matplotlib import pyplot as plt
-from matplotlib.animation import ArtistAnimation
-
 from celluloid import Camera
-
 
 fig = plt.figure()
 camera = Camera(fig)
 for i in range(10):
     plt.plot([i] * 10)
     camera.snap()
-
-
 animation = camera.animate(interval=100, blit=True)
 animation.save(
     'simple.mp4',
