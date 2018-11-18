@@ -8,7 +8,7 @@
 Easy Matplotlib Animation
 
 <p align="center">
-  <a href="https://github.com/jwkvam/celluloid/examples/sines.py">
+  <a href="https://github.com/jwkvam/celluloid/blob/master/examples/sines.py">
     <img src="https://user-images.githubusercontent.com/86304/48657442-9c11e080-e9e5-11e8-9f54-f46a960be7dd.gif">
   </a>
 </p>
@@ -70,7 +70,7 @@ animation = camera.animate()
 ```
 
 <p align="center">
-  <a href="https://github.com/jwkvam/celluloid/examples/simple.py">
+  <a href="https://github.com/jwkvam/celluloid/blob/master/examples/simple.py">
     <img src="https://user-images.githubusercontent.com/86304/48666133-66660980-ea70-11e8-9024-b167c21a5e83.gif">
   </a>
 </p>
