@@ -94,6 +94,10 @@ for i in np.linspace(0, 2 * np.pi, 128, endpoint=False):
 animation = camera.animate()
 ```
 
+## Limitations
+
+- The axes' limits should be the same for all plots. The limits of the animation will be the limits of the final plot.
+
 ## Credits
 
 Inspired by [plotnine](https://github.com/has2k1/plotnine/blob/master/plotnine/animation.py).
