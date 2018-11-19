@@ -44,3 +44,44 @@ def test_two_axes():
 
     anim = camera.animate()
     assert len(list(anim.frame_seq)) == 2
+
+
+def test_legends():
+    """Test subplots."""
+    camera = Camera(plt.figure())
+
+    plt.legend(plt.plot(range(5)), ['hello'])
+    artists = camera.snap()
+    assert len(artists) == 2
+
+    plt.legend(plt.plot(range(5)), ['world'])
+    artists = camera.snap()
+    assert len(artists) == 2
+
+    assert camera._photos[0][1].texts[0]._text == 'hello'
+    assert camera._photos[1][1].texts[0]._text == 'world'
+
+    # pylint: disable=protected-access
+    assert sum(len(x) for x in camera._photos) == 4
+
+    anim = camera.animate()
+    assert len(list(anim.frame_seq)) == 2
+
+
+def test_images():
+    """Test subplots."""
+    camera = Camera(plt.figure())
+
+    plt.imshow(np.ones((5, 5)))
+    artists = camera.snap()
+    assert len(artists) == 1
+
+    plt.imshow(np.zeros((5, 5)))
+    artists = camera.snap()
+    assert len(artists) == 1
+
+    # pylint: disable=protected-access
+    assert sum(len(x) for x in camera._photos) == 2
+
+    anim = camera.animate()
+    assert len(list(anim.frame_seq)) == 2
