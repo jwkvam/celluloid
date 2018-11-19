@@ -18,7 +18,9 @@ class Camera:
         self._figure = figure
         # need to keep track off artists for each axis
         self._offsets: Dict[str, Dict[int, int]] = {
-            k: defaultdict(int) for k in ['collections', 'patches', 'lines', 'texts', 'artists']
+            k: defaultdict(int) for k in [
+                'collections', 'patches', 'lines', 'texts', 'artists', 'images'
+            ]
         }
         self._photos: List[List[Artist]] = []
 
@@ -30,6 +32,9 @@ class Camera:
                 new_artists = getattr(axis, name)[self._offsets[name][i]:]
                 frame_artists += new_artists
                 self._offsets[name][i] += len(new_artists)
+                if axis.legend_ is not None:
+                    axis.add_artist(axis.legend_)
+                    frame_artists.append(axis.legend_)
         self._photos.append(frame_artists)
         return frame_artists
 
