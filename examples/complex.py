@@ -39,7 +39,7 @@ for a in tqdm(np.linspace(0, 2 * np.pi, 30, endpoint=False)):
 animation = camera.animate(interval=50, blit=True)
 animation.save(
     'complex.mp4',
-    dpi=200,
+    dpi=100,
     savefig_kwargs={
         'frameon': False,
         'pad_inches': 0

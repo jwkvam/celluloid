@@ -98,7 +98,7 @@ animation = camera.animate()
 
 <p align="center">
   <a href="https://github.com/jwkvam/celluloid/blob/master/examples/complex.py">
-    <img src="https://user-images.githubusercontent.com/86304/48746978-90f9c300-ec26-11e8-9bb4-da4b41d5d70c.gif">
+    <img src="https://user-images.githubusercontent.com/86304/48747098-f483f080-ec26-11e8-9734-c409e9b0c9ec.gif">
   </a>
 </p>
 
