@@ -37,7 +37,6 @@ for a in tqdm(np.linspace(0, 2 * np.pi, 30, endpoint=False)):
     camera.snap()
 
 animation = camera.animate(interval=50, blit=True)
-animation.save('complex.gif', dpi=200, writer='imagemagick')
 animation.save(
     'complex.mp4',
     dpi=200,

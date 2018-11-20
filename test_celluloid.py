@@ -58,6 +58,7 @@ def test_legends():
     artists = camera.snap()
     assert len(artists) == 2
 
+    # pylint: disable=protected-access
     assert camera._photos[0][1].texts[0]._text == 'hello'
     assert camera._photos[1][1].texts[0]._text == 'world'
 
