@@ -94,9 +94,71 @@ for i in t:
 animation = camera.animate()
 ```
 
+### Images
+
+Domain coloring example.
+
+```python
+import numpy as np
+from matplotlib import pyplot as plt
+from matplotlib.colors import hsv_to_rgb
+
+from celluloid import Camera
+
+fig = plt.figure()
+camera = Camera(fig)
+
+for a in np.linspace(0, 2 * np.pi, 30, endpoint=False):
+    x = np.linspace(-3, 3, 800)
+    X, Y = np.meshgrid(x, x)
+    x = X + 1j * Y
+    y = (x ** 2 - 2.5) * (x - 2.5 * 1j) * (x + 2.5 * 1j) \
+        * (x - 2 - 1j) ** 2 / ((x - np.exp(1j * a)) ** 2
+        * (x - np.exp(1j * 2 * a)) ** 2)
+
+    H = np.angle(y) / (2 * np.pi) + .5
+    r = np.log2(1. + np.abs(y))
+    S = (1. + np.abs(np.sin(2. * np.pi * r))) / 2.
+    V = (1. + np.abs(np.cos(2. * np.pi * r))) / 2.
+
+    rgb = hsv_to_rgb(np.dstack((H, S, V)))
+    ax.imshow(rgb)
+    camera.snap()
+animation = camera.animate()
+```
+
+<p align="center">
+  <a href="https://github.com/jwkvam/celluloid/blob/master/examples/complex.py">
+    <img src="https://user-images.githubusercontent.com/86304/48747098-f483f080-ec26-11e8-9734-c409e9b0c9ec.gif">
+  </a>
+</p>
+
+### Legends
+
+```python
+import matplotlib
+from matplotlib import pyplot as plt
+from celluloid import Camera
+
+fig = plt.figure()
+camera = Camera(fig)
+for i in range(5):
+    t = plt.plot(range(i, i + 5))
+    plt.legend(t, [f'line {i}'])
+    camera.snap()
+animation = camera.animate()
+```
+
+<p align="center">
+  <a href="https://github.com/jwkvam/celluloid/blob/master/examples/complex.py">
+    <img src="https://user-images.githubusercontent.com/86304/48750564-9100bf80-ec34-11e8-87fb-bc5c7ddcc6e7.gif">
+  </a>
+</p>
+
 ## Limitations
 
 - The axes' limits should be the same for all plots. The limits of the animation will be the limits of the final plot.
+- Legends will accumulate from previous frames. Pass the artists to the `legend` function to draw them separately.
 
 ## Credits
 

@@ -18,15 +18,19 @@ class Camera:
         self._figure = figure
         # need to keep track off artists for each axis
         self._offsets: Dict[str, Dict[int, int]] = {
-            k: defaultdict(int) for k in ['collections', 'patches', 'lines', 'texts', 'artists']
+            k: defaultdict(int) for k in [
+                'collections', 'patches', 'lines', 'texts', 'artists', 'images'
+            ]
         }
         self._photos: List[List[Artist]] = []
 
     def snap(self) -> List[Artist]:
         """Capture current state of the figure."""
         frame_artists: List[Artist] = []
-        for name in self._offsets:
-            for i, axis in enumerate(self._figure.axes):
+        for i, axis in enumerate(self._figure.axes):
+            if axis.legend_ is not None:
+                axis.add_artist(axis.legend_)
+            for name in self._offsets:
                 new_artists = getattr(axis, name)[self._offsets[name][i]:]
                 frame_artists += new_artists
                 self._offsets[name][i] += len(new_artists)
