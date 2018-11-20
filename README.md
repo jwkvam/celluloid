@@ -150,7 +150,7 @@ animation = camera.animate()
 ```
 
 <p align="center">
-  <a href="https://github.com/jwkvam/celluloid/blob/master/examples/complex.py">
+  <a href="https://github.com/jwkvam/celluloid/blob/master/examples/legends.py">
     <img src="https://user-images.githubusercontent.com/86304/48750564-9100bf80-ec34-11e8-87fb-bc5c7ddcc6e7.gif">
   </a>
 </p>
