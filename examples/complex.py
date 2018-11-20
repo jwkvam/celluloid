@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Sinusoid animation."""
+"""Complex domain coloring."""
 
 import numpy as np
 import matplotlib
@@ -7,9 +7,7 @@ matplotlib.use('Agg')
 from matplotlib import pyplot as plt
 from matplotlib.colors import hsv_to_rgb
 from tqdm import tqdm
-
 from celluloid import Camera
-
 
 fig = plt.figure()
 # hack to remove border
@@ -18,7 +16,6 @@ fig.set_size_inches(4, 4, forward=False)
 ax = plt.Axes(fig, [0, 0, 1, 1])
 ax.set_axis_off()
 fig.add_axes(ax)
-
 camera = Camera(fig)
 
 for a in tqdm(np.linspace(0, 2 * np.pi, 30, endpoint=False)):
@@ -35,7 +32,6 @@ for a in tqdm(np.linspace(0, 2 * np.pi, 30, endpoint=False)):
     rgb = hsv_to_rgb(np.dstack((H, S, V)))
     ax.imshow(rgb)
     camera.snap()
-
 animation = camera.animate(interval=50, blit=True)
 animation.save(
     'complex.mp4',
