@@ -21,16 +21,11 @@ fig.add_axes(ax)
 
 camera = Camera(fig)
 
-t = np.linspace(.5, 1.5, 11)
-tf = np.concatenate([t[:-1], t[-1:0:-1]])
-tb = np.concatenate([t[::-1], t[1:-1]])
-assert len(tf) == len(tb)
-for i, j in tqdm(zip(tf, tb), total=len(tf)):
-    lim = 3
-    x = np.linspace(-lim, lim, 1000)
+for a in tqdm(np.linspace(0, 2 * np.pi, 30, endpoint=False)):
+    x = np.linspace(-3, 3, 800)
     X, Y = np.meshgrid(x, x)
     x = X + 1j * Y
-    y = (x ** 2 - i) * (x - 2 * j - 1j) **2 / (x ** 2 + 2 + 2 * 1j)
+    y = (x ** 2 - 2.5) * (x - 2.5 * 1j) * (x + 2.5 * 1j) * (x - 2 - 1j) ** 2 / ((x - np.exp(1j * a)) ** 2 * (x - np.exp(1j * 2 * a)) ** 2)
 
     H = np.angle(y) / (2 * np.pi) + .5
     r = np.log2(1. + np.abs(y))
@@ -42,10 +37,10 @@ for i, j in tqdm(zip(tf, tb), total=len(tf)):
     camera.snap()
 
 animation = camera.animate(interval=50, blit=True)
-animation.save('complex.gif', writer='imagemagick')
+animation.save('complex.gif', dpi=200, writer='imagemagick')
 animation.save(
     'complex.mp4',
-    dpi=100,
+    dpi=200,
     savefig_kwargs={
         'frameon': False,
         'pad_inches': 0
