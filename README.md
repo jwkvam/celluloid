@@ -159,6 +159,10 @@ animation = camera.animate()
 
 - The axes' limits should be the same for all plots. The limits of the animation will be the limits of the final plot.
 - Legends will accumulate from previous frames. Pass the artists to the [`legend`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.legend.html) function to draw them separately.
+- [Animating the title does not work](https://stackoverflow.com/questions/47421486/matplotlib-artist-animation-title-or-text-not-changing). As a workaround you can create a text object:   
+```python
+ax.text(0.5, 1.01, 'computed title', transform=ax.transAxes)
+```
 - This can demand a lot of memory since it uses [`ArtistAnimation`](https://matplotlib.org/api/_as_gen/matplotlib.animation.ArtistAnimation.html) under the hood. This means that all artists are saved to memory before the animation is constructed.
 - This is a black box. If you want to understand how matplotlib animations work, using this library may hinder you. If you want to be an expert matplotlib user, you may want to pass on this library.
 
