@@ -1,4 +1,4 @@
-.PHONY: test lint style
+.PHONY: test lint static
 
 all: test
 
