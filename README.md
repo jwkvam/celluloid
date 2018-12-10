@@ -51,6 +51,16 @@ animation.save('animation.mp4')
 
 The entire [module](https://github.com/jwkvam/celluloid/blob/master/celluloid.py) is less than 50 lines of code.
 
+### Viewing in Jupyter Notebooks
+
+View videos in notebooks with [IPython](https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html#IPython.display.HTML).
+
+```python
+from IPython.display import HTML
+animation = camera.animate()
+HTML(animation.to_html5_video())
+```
+
 ## Examples
 
 ### Minimal
