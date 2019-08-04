@@ -115,7 +115,7 @@ from matplotlib.colors import hsv_to_rgb
 
 from celluloid import Camera
 
-fig = plt.figure()
+fig, ax = plt.subplots()
 camera = Camera(fig)
 
 for a in np.linspace(0, 2 * np.pi, 30, endpoint=False):
